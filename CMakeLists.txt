@@ -4,4 +4,5 @@ project(ragnarok_game)
 set(CMAKE_CXX_STANDARD 14)
 
 # add components
+add_subdirectory(third_party)
 add_subdirectory(renderer)
