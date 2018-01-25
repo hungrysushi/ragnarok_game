@@ -6,3 +6,6 @@ set(CMAKE_CXX_STANDARD 14)
 # add components
 add_subdirectory(third_party)
 add_subdirectory(engine)
+
+# main app
+add_subdirectory(app)
