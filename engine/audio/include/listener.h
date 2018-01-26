@@ -1,12 +1,11 @@
 #pragma once
 
-#include <AL/al.h>
+/* #include <AL/al.h> */
 
-namespace audio {
+namespace OpenAL {
 
 class Listener {
     private:
-        int m_sourceId;
         float m_currentVolume;
 
     public:

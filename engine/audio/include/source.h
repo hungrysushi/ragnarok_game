@@ -1,8 +1,8 @@
 #pragma once
 
-#include <AL/al.h>
+/* #include <AL/al.h> */
 
-namespace audio {
+namespace OpenAL {
 
 class Source {
     private:
