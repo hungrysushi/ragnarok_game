@@ -11,11 +11,11 @@ World::~World() {
         // TODO
 }
 
-vec3 World::Dimensions() {
+vec3<float> World::GetDimensions() {
         return dimensions_;
 }
 
-vec3 World::View() {
+vec3<float> World::GetView() {
         return view_;
 }
 

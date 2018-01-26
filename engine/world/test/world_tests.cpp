@@ -29,13 +29,13 @@ public:
 };
 
 TEST_F(WorldTests, dimensions_initial) {
-        vec3 vector = {0.0, 0.0, 0.0};
-        EXPECT_EQ(vector, world_.Dimensions());
+        vec3<float> vector = {0.0, 0.0, 0.0};
+        EXPECT_EQ(vector, world_.GetDimensions());
 }
 
 TEST_F(WorldTests, view_initial) {
-        vec3 vector = {0.0, 0.0, 0.0};
-        EXPECT_EQ(vector, world_.View());
+        vec3<float> vector = {0.0, 0.0, 0.0};
+        EXPECT_EQ(vector, world_.GetView());
 }
 
 }  // namespace Ragnarok

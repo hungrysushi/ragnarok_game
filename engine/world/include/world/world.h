@@ -9,14 +9,14 @@ public:
         ~World();
         
         /* get the size of the world */
-        vec3 GetDimensions();
+        vec3<float> GetDimensions();
         
         /* current view position */
-        vec3 GetView();
+        vec3<float> GetView();
 
 protected:
-        const vec3 dimensions_;
-        vec3 view_;
+        const vec3<float> dimensions_;
+        vec3<float> view_;
 };
 
 }  // namespace Ragnarok
