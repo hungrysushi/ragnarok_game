@@ -3,22 +3,22 @@
 /* #include <AL/al.h> */
 /* #include <AL/alc.h> */
 
-namespace OpenAL {
+namespace Ragnarok {
 
 class Device {
     
-    private:
-        ALCDevice *m_PlaybackDevice;
-        ALCDevice *m_CaptureDevice;
-        ALCContext *m_Context;
-        
-    public:
-        Device();
-        
-        void changePlaybackDevice(const ALChar *deviceName);
+public:
+    Device();
 
-        void changeCaptureDevice(const ALChar *deviceName);
+    ~Device();
 
-        ~Device();
+    void changePlaybackDevice(const ALChar *deviceName);
+
+    void changeCaptureDevice(const ALChar *deviceName);
+
+private:
+    ALCDevice *m_PlaybackDevice;
+    ALCDevice *m_CaptureDevice;
+    ALCContext *m_Context;
 
 }

@@ -1,11 +1,14 @@
 #include "audio/source.h"
 
-namespace OpenAL {
+namespace Ragnarok {
     
     Source::Source() {
     
     }
+
+    Source::~Source() {
     
+    }
 
     void Source::setPosition(float x, float y, float z) {
     
@@ -31,7 +34,4 @@ namespace OpenAL {
 
     /* someObject Source::getStatus(); */
 
-    Source::~Source() {
-    
-    }
 }

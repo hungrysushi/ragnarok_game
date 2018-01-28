@@ -2,34 +2,34 @@
 
 /* #include <AL/al.h> */
 
-namespace OpenAL {
+namespace Ragnarok {
 
 class Source {
-    private:
-        int m_sourceId;
-        float m_currentVolume;
-        /* someObject m_position; */
 
+public:
+    Source();
+    
+    //TODO: Put (x, y, z) in a struct
 
-    public:
-        Source();
-        
-        //TODO: Put (x, y, z) in a struct
+    void setPosition(float x, float y, float z); 
 
-        void setPosition(float x, float y, float z); 
+    void setVelocity(float x, float y, float z); 
+    
+    void setDirection(float x, float y, float z);
 
-        void setVelocity(float x, float y, float z); 
-        
-        void setDirection(float x, float y, float z);
+    void setVolume(float volume);
 
-        void setVolume(float volume);
+    float getVolume();
 
-        float getVolume();
+    /* someObject getPosition(); */
+    
+    /* someObject getStatus(); */
 
-        /* someObject getPosition(); */
-        
-        /* someObject getStatus(); */
+    ~Source();
 
-        ~Source();
+private:
+    int m_sourceId;
+    float m_currentVolume;
+    /* someObject m_position; */
 
 }

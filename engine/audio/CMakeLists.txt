@@ -1,32 +1,32 @@
 
 set (CMAKE_CXX_STANDARD 14)
 
-add_library(renderer
-    src/opengl_renderer.cpp
+add_library(audio
+    src/opengl_audio.cpp
     )
 
-target_include_directories(renderer PUBLIC
+target_include_directories(audio PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-target_link_libraries(renderer LINK_PUBLIC
+target_link_libraries(audio LINK_PUBLIC
 
     )
 
 # Unit testing stuff
 enable_testing()
 
-add_executable(renderer_tests
+add_executable(audio_tests
     test/test_main.cpp
     # other test files here
     )
 
-target_link_libraries(renderer_tests
+target_link_libraries(audio_tests
     gtest
     gmock
     # modules to test
-    renderer
+    audio
     )
 
-add_test(renderer_tests renderer_tests)
-add_custom_target(run_renderer_tests renderer_tests)
-add_dependencies(run_renderer_tests renderer_tests)
+add_test(audio_tests audio_tests)
+add_custom_target(run_audio_tests audio_tests)
+add_dependencies(run_audio_tests audio_tests)
