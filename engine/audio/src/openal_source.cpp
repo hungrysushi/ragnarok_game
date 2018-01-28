@@ -1,4 +1,4 @@
-#include "audio/source.h"
+#include "audio/openal_source.h"
 
 namespace Ragnarok {
     
@@ -18,11 +18,11 @@ namespace Ragnarok {
     
     } 
 
-    void Source::setDirection(float x, float y, float z){
+    void Source::setDirection(float x, float y, float z) {
     
     }
 
-    void Source::setVolume(float volume){
+    void Source::setVolume(float volume) {
     
     }
 

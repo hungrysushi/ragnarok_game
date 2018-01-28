@@ -2,7 +2,9 @@
 set (CMAKE_CXX_STANDARD 14)
 
 add_library(audio
-    src/opengl_audio.cpp
+    src/openal_listener.cpp
+    src/openal_source.cpp
+    src/openal_device.cpp
     )
 
 target_include_directories(audio PUBLIC
