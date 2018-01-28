@@ -2,36 +2,36 @@
 
 namespace Ragnarok {
     
-    Source::Source() {
-    
-    }
+Source::Source() {
 
-    Source::~Source() {
-    
-    }
+}
 
-    void Source::setPosition(float x, float y, float z) {
-    
-    }
+Source::~Source() {
 
-    void Source::setVelocity(float x, float y, float z) {
-    
-    } 
+}
 
-    void Source::setDirection(float x, float y, float z) {
-    
-    }
+void Source::setPosition(float x, float y, float z) {
 
-    void Source::setVolume(float volume) {
-    
-    }
+}
 
-    float Source::getVolume() {
-    
-    }
+void Source::setVelocity(float x, float y, float z) {
 
-    /* someObject Source::getPosition(); */
+} 
 
-    /* someObject Source::getStatus(); */
+void Source::setDirection(float x, float y, float z) {
+
+}
+
+void Source::setVolume(float volume) {
+
+}
+
+float Source::getVolume() {
+
+}
+
+/* someObject Source::getPosition(); */
+
+/* someObject Source::getStatus(); */
 
 }

@@ -2,16 +2,16 @@
 
 namespace Ragnarok {
 
-        Device::Device();
-        
-        Device::~Device();
+Device::Device();
 
-        void Device::changePlaybackDevice(const ALChar *deviceName) {
-        
-        }
+Device::~Device();
 
-        void Device::changeCaptureDevice(const ALChar *deviceName) {
-        
-        }
+void Device::changePlaybackDevice(const ALChar *deviceName) {
+
+}
+
+void Device::changeCaptureDevice(const ALChar *deviceName) {
+
+}
 
 }
