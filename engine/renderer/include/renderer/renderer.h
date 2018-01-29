@@ -4,8 +4,10 @@ namespace Ragnarok {
 
 class Renderer {
 public:
-        Renderer();
-        ~Renderer();
+        Renderer() {}
+        virtual ~Renderer() {}
+
+        virtual void DrawWorld(/*World world*/) = 0;
 };
 
 }  // namespace Ragnarok
