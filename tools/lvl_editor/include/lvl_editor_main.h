@@ -1,18 +1,21 @@
 namespace Ragnarok {
 
-    class LevelEdit {
+class LevelEdit {
 
-    public:
-    // constructor and deconstructor
-        LevelEdit();
-        ~LevelEdit();
+public:
+// constructor and deconstructor
+    LevelEdit();
+    ~LevelEdit();
 
-    // function prototypes
-        void levelDimensions(float x, float y);
-        void levelTag();
-        void worldLocation();
-        void addEntities();
+// function prototypes
+    void levelDimensions(float x, float y);
+    void levelTag();
+    void worldLocation();
+    void addEntities();
 
-    }
+private:
+
+
+}
 
 } //namespace Ragnarok
