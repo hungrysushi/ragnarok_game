@@ -10,19 +10,19 @@ Source::~Source() {
 
 }
 
-void Source::setPosition(float x, float y, float z) {
+void Source::setPosition(const vec3<float> position) {
 
 }
 
-void Source::setVelocity(float x, float y, float z) {
+void Source::setVelocity(const vec3<float> velocity) {
 
 } 
 
-void Source::setDirection(float x, float y, float z) {
+void Source::setDirection(const vec3<float> direction) {
 
 }
 
-void Source::setVolume(float volume) {
+void Source::setVolume(const float volume) {
 
 }
 

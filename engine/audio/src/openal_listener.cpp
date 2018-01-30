@@ -10,19 +10,19 @@ Listener::~Listener() {
 
 }
 
-void Listener::setPosition(float x, float y, float z) {
+void Listener::setPosition(const vec3<float> position) {
 
 } 
 
-void Listener::setVelocity(float x, float y, float z) {
+void Listener::setVelocity(const vec3<float> velocity) {
 
 }
 
-void Listener::setDirection(float x, float y, float z) {
+void Listener::setDirection(const vec3<float> direction) {
 
 }
 
-void Listener::setVolume(float volume) {
+void Listener::setVolume(const float volume) {
 
 }
 

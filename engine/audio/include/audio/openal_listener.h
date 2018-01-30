@@ -1,6 +1,7 @@
 #pragma once
 
 #include <AL/al.h>
+#include "util/vec_types.h"
 
 namespace Ragnarok {
 
@@ -11,15 +12,13 @@ public:
     
     ~Listener(); 
     
-    //TODO: Put (x, y, z) in a struct instead
+    void setPosition(const vec3<float> position); 
 
-    void setPosition(float x, float y, float z); 
-
-    void setVelocity(float x, float y, float z); 
+    void setVelocity(const vec3<float> velocity); 
     
-    void setDirection(float x, float y, float z);
+    void setDirection(const vec3<float> direction);
 
-    void setVolume(float volume);
+    void setVolume(const float volume);
     
     float getVolume();
 
