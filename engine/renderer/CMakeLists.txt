@@ -2,7 +2,7 @@
 set (CMAKE_CXX_STANDARD 14)
 
 add_library(renderer
-        src/renderer.cpp
+        src/opengl_renderer.cpp
         )
 
 target_include_directories(renderer PUBLIC
