@@ -1,7 +1,8 @@
 #pragma once
 
-/* #include <AL/al.h> */
-/* #include <AL/alc.h> */
+#include <AL/al.h>
+#include <AL/alc.h>
+#include <AL/alext.h>
 
 namespace Ragnarok {
 
@@ -12,13 +13,15 @@ public:
 
     ~Device();
 
-    void changePlaybackDevice(const ALChar *deviceName);
+    void changePlaybackDevice(const ALchar *deviceName);
 
-    void changeCaptureDevice(const ALChar *deviceName);
+    void changeCaptureDevice(const ALchar *deviceName);
 
 private:
-    ALCDevice *m_PlaybackDevice;
-    ALCDevice *m_CaptureDevice;
-    ALCContext *m_Context;
+    ALCdevice *m_PlaybackDevice;
+    ALCdevice *m_CaptureDevice;
+    ALCcontext *m_Context;
 
-}
+};
+
+}  // namespace Ragnarok

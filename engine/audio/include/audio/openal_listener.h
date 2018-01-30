@@ -1,6 +1,6 @@
 #pragma once
 
-/* #include <AL/al.h> */
+#include <AL/al.h>
 
 namespace Ragnarok {
 
@@ -8,6 +8,8 @@ class Listener {
 
 public:
     Listener();
+    
+    ~Listener(); 
     
     //TODO: Put (x, y, z) in a struct instead
 
@@ -23,11 +25,9 @@ public:
 
     /* someObject getPosition(); */
 
-    ~Listener(); 
-
 private:
     float m_currentVolume;
    
 };
 
-}
+}  // namespace Ragnarok

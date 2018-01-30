@@ -2,9 +2,13 @@
 
 namespace Ragnarok {
 
-Listener::Listener();
+Listener::Listener() {
 
-Listener::~Listener();
+}
+
+Listener::~Listener() {
+
+}
 
 void Listener::setPosition(float x, float y, float z) {
 
@@ -28,4 +32,4 @@ float Listener::getVolume() {
 
 /* someObject Listener::getPosition(); */
 
-}
+}  // namespace Ragnarok

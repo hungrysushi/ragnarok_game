@@ -34,4 +34,4 @@ float Source::getVolume() {
 
 /* someObject Source::getStatus(); */
 
-}
+}  // namespace Ragnarok

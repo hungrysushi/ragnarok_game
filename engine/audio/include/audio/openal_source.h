@@ -1,6 +1,6 @@
 #pragma once
 
-/* #include <AL/al.h> */
+#include <AL/al.h>
 
 namespace Ragnarok {
 
@@ -9,15 +9,17 @@ class Source {
 public:
     Source();
     
+    ~Source();
+    
     //TODO: Put (x, y, z) in a struct
 
-    void setPosition(float x, float y, float z); 
+    void setPosition(const float x, const float y, const float z); 
 
-    void setVelocity(float x, float y, float z); 
+    void setVelocity(const float x, const float y, const float z); 
     
-    void setDirection(float x, float y, float z);
+    void setDirection(const float x, const float y, const float z);
 
-    void setVolume(float volume);
+    void setVolume(float const volume);
 
     float getVolume();
 
@@ -25,11 +27,12 @@ public:
     
     /* someObject getStatus(); */
 
-    ~Source();
 
 private:
     int m_sourceId;
     float m_currentVolume;
     /* someObject m_position; */
 
-}
+};
+
+}  // namespace Ragnarok
