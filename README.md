@@ -14,13 +14,13 @@ After cloning the project:
 * Go to third_party/glad and run `python -m glad --generator c --no-loader --out-path ../glad_generated`
 
 * Check OpenGL version `glxinfo | grep "OpenGL version"` (Linux)
--- Edit ` GLFW_CONTEXT_VERSION_MAJOR` and `GLFW_CONTEXT_VERSION_MINOR` in `engine/src/engine.cpp` to represent version on your computer.
--- For example, if OpenGL version = 4.2, `GLFW_CONTEXT_VERSION_MAJOR = 4` and `GLFW_CONTEXT_VERSION_MINOR = 2`
+    * Edit ` GLFW_CONTEXT_VERSION_MAJOR` and `GLFW_CONTEXT_VERSION_MINOR` in `engine/src/engine.cpp` to represent version on your computer.
+    * For example, if OpenGL version = 4.2, `GLFW_CONTEXT_VERSION_MAJOR = 4` and `GLFW_CONTEXT_VERSION_MINOR = 2`
 
 * Go to third_party/openal-soft/build and run `cmake ..`
--- Make sure appropriate backends are detected (DirectSound for Windows, PulseAudio, ALSA, OSS for Linux).
--- Run `make`
--- Run `./openal-info` to check if OpenAL information is correct.
+    * Make sure appropriate backends are detected (DirectSound for Windows, PulseAudio, ALSA, OSS for Linux).
+    * Run `make`
+    * Run `./openal-info` to check if OpenAL information is correct.
 
 ## Building and running
 From the root of the project,
