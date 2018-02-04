@@ -1,17 +1,20 @@
 namespace Ragnarok {
 
-class LevelEdit {
+class LevelEditor {
 
 public:
 // constructor and deconstructor
-    LevelEdit();
-    ~LevelEdit();
+    LevelEditor();
+    ~LevelEditor();
 
 // function prototypes
     void levelDimensions(float x, float y);
     void levelTag();
     void worldLocation();
     void addEntities();
+    void saveCheckpointWorldLocation();
+    void saveCheckpointData();
+    )
 
 private:
 

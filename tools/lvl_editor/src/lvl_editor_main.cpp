@@ -2,7 +2,7 @@
 
 namespace Ragnarok {
     
-    LevelEdit::LevelEdit() {}
-    ~LevelEdit::LevelEdit() {}
+    LevelEditor::LevelEditor() {}
+    LevelEditor::~LevelEditor() {}
 
 } //namespace Ragnarok
