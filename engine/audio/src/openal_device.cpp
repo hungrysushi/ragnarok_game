@@ -3,20 +3,22 @@
 
 namespace Ragnarok {
 
-Device::Device() {
-
+Device::Device() 
+    :
+    context_(nullptr),
+    playbackDevice_(nullptr)
+{
+    alcMakeContextCurrent(nullptr);
+    playbackDevice_ = alcOpenDevice(nullptr);
+    checkALError("Couldn't create audio device");
+    context_ = alcCreateContext(playbackDevice_, nullptr);
+    alcMakeContextCurrent(context_);
 }
 
 Device::~Device() {
-
-}
-
-void Device::changePlaybackDevice(const ALchar *deviceName) {
-
-}
-
-void Device::changeCaptureDevice(const ALchar *deviceName) {
-
+    alcMakeContextCurrent(nullptr);
+    alcDestroyContext(context_);
+    alcCloseDevice(playbackDevice_);
 }
 
 }  // namespace Ragnarok
