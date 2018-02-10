@@ -8,15 +8,11 @@ namespace Ragnarok {
 class Listener {
 
 public:
-    Listener();
-    
-    ~Listener(); 
-    
     void setPosition(const vec3<float> position); 
 
     void setVelocity(const vec3<float> velocity); 
     
-    void setDirection(const vec3<float> direction);
+    void setOrientation(const vec3<float> at, const vec3<float> up);
 
     void setVolume(const float volume);
     
@@ -24,8 +20,12 @@ public:
 
     vec3<float> getPosition(); 
 
+    vec3<float> getVelocity(); 
+
 private:
     float volume_;
+    vec3<float> position_;
+    vec3<float> velocity_;
    
 };
 
