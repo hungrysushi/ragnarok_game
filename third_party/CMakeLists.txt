@@ -10,3 +10,7 @@ include_directories(glfw/include)
 
 # open gl hardware compatibility
 add_subdirectory(glad_generated)
+
+# OpenAL configuration
+add_subdirectory(openal-soft)
+include_directories(openal-soft/include)
