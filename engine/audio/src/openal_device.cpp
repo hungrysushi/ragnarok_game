@@ -1,4 +1,5 @@
 #include "audio/openal_device.h"
+#include "audio/openal_util.h"
 
 namespace Ragnarok {
 

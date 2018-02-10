@@ -20,17 +20,29 @@ public:
 
     void setVolume(const float volume);
 
+    void setPitch(const float pitch);
+
+    void setLoop(bool loop);
+
+    void play();
+
+    void pause();
+
+    bool isPlaying();
+
+    void stop();
+
     float getVolume();
 
-    /* someObject getPosition(); */
-    
-    /* someObject getStatus(); */
+    float getPitch();
 
+    vec3<float> getPosition();
 
 private:
-    int m_sourceId;
-    float m_currentVolume;
-    /* someObject m_position; */
+    ALuint sourceId_;
+    float volume_;
+    float pitch_;
+    vec3<float> position_;
 
 };
 

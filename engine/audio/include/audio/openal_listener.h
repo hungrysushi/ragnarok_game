@@ -22,10 +22,10 @@ public:
     
     float getVolume();
 
-    /* someObject getPosition(); */
+    vec3<float> getPosition(); 
 
 private:
-    float m_currentVolume;
+    float volume_;
    
 };
 

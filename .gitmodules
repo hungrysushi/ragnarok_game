@@ -4,6 +4,7 @@
 [submodule "third_party/openal-soft"]
 	path = third_party/openal-soft
 	url = https://github.com/kcat/openal-soft.git
+    ignore = dirty
 [submodule "third_party/glfw"]
 	path = third_party/glfw
 	url = https://github.com/glfw/glfw.git
