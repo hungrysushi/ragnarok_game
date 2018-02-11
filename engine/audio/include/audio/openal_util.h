@@ -4,7 +4,7 @@
 #include <AL/alc.h>
 #include <iostream>
 
-void checkALError(const char* operation) {
+void CheckALError(const char* operation) {
 
     ALenum alErr = alGetError();
     if(alErr == AL_NO_ERROR) return;

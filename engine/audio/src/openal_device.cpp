@@ -4,13 +4,10 @@
 namespace Ragnarok {
 
 Device::Device() 
-    :
-    context_(nullptr),
-    playbackDevice_(nullptr)
-{
+    : context_(nullptr), playbackDevice_(nullptr) {
     alcMakeContextCurrent(nullptr);
     playbackDevice_ = alcOpenDevice(nullptr);
-    checkALError("Couldn't create audio device");
+    CheckALError("Couldn't create audio device");
     context_ = alcCreateContext(playbackDevice_, nullptr);
     alcMakeContextCurrent(context_);
 }
