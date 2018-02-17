@@ -16,8 +16,14 @@ enum ResourceType {
 typedef void* VoidPtr;
 
 /**
- * a closure that should use the external mechanism for freeing an unmanaged resource
+ * Hold data relevant to pointers allocated outside of the allocator
  */
-typedef std::function<void()> Deallocator;
+struct Deallocator {
+        // a closure that should use the external mechanism for freeing an unmanaged resource
+        std::function<void()> deallocate;
+
+        // size of item, if available
+        uint32_t size = 0;
+};
 
 }  // namespace Ragnarok

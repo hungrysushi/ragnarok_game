@@ -13,7 +13,13 @@ public:
          * Allocate a pointer of the size requested, or store an already
          * allocated pointer along with a deallocator function
          */
-        virtual void Allocate(VoidPtr& target, const uint32_t allocate_size, const ResourceType type, const Deallocator& deallocator) = 0;
+        virtual void Allocate(VoidPtr& target, const uint32_t allocate_size) = 0;
+
+        /**
+         * Save a pointer and a deallocator closure so that we can still track
+         * it from a single point
+         */
+        virtual void Track(VoidPtr& target, const Deallocator& deallocate) = 0;
 
         /**
          * Delete/recycle the memory used by the target pointer

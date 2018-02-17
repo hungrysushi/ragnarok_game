@@ -17,8 +17,10 @@ public:
         SpeedyAllocator();
         ~SpeedyAllocator();
 
-        void Allocate(VoidPtr& target, const uint32_t allocate_size, const ResourceType type, const Deallocator& deallocator);
+        void Allocate(VoidPtr& target, const uint32_t allocate_size);
+        void Track(VoidPtr& target, const Deallocator& deallocator);
         void Deallocate(VoidPtr& target, const ResourceType type);
+
         uint32_t Size();
         uint32_t Capacity();
 

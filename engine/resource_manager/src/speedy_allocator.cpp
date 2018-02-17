@@ -11,22 +11,18 @@ SpeedyAllocator::~SpeedyAllocator() {
         // TODO
 }
 
-void SpeedyAllocator::Allocate(VoidPtr& target, const uint32_t allocate_size, const ResourceType type, const Deallocator& deallocator) {
+void SpeedyAllocator::Allocate(VoidPtr& target, const uint32_t allocate_size) {
 
-        if (type == ResourceType::kDispersed || type == ResourceType::kPacked) {
+        target = (VoidPtr) new uint8_t[allocate_size];
 
-                target = (VoidPtr) new uint8_t[allocate_size];
+        // save the pointer in a map. This is definitely not space efficient,
+        // but it'll make things somewhat quick
+        dispersed_map_[(uint8_t*) target] = allocate_size;
+}
 
-                // save the pointer in a map. This is definitely not space efficient,
-                // but it'll make things somewhat quick
-                dispersed_map_[(uint8_t*) target] = allocate_size;
-        }
-        else if (type == ResourceType::kUnmanaged) {
-
-                // this is kind of a misnomer, since we're not really allocating anything here
-                // We're just keeping track of something already allocated
-                unmanaged_map_[(uint8_t*) target] = deallocator;
-        }
+void SpeedyAllocator::Track(VoidPtr& target, const Deallocator& deallocator) {
+        // keep track of something allocated outside
+        unmanaged_map_[(uint8_t*) target] = deallocator;
 }
 
 void SpeedyAllocator::Deallocate(VoidPtr& target, const ResourceType type) {
@@ -40,7 +36,7 @@ void SpeedyAllocator::Deallocate(VoidPtr& target, const ResourceType type) {
         }
         else if (type == ResourceType::kUnmanaged) {
                 // call the closure for freeing up this resource
-                unmanaged_map_[target]();
+                unmanaged_map_[target].deallocate();
 
                 // delete from our map
                 unmanaged_map_.erase((uint8_t*) target);
