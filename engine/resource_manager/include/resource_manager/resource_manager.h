@@ -32,7 +32,7 @@ public:
         virtual uint32_t Size() = 0;
 
         /**
-         * Return the amount of available space
+         * Return the amount of available space when we have a reserved pool
          */
         virtual uint32_t Capacity() = 0;
 };

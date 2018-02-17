@@ -63,5 +63,27 @@ TEST_F(SpeedyAllocatorTests, track_and_deallocate) {
         EXPECT_EQ(test_class, nullptr);
 }
 
+TEST_F(SpeedyAllocatorTests, size) {
+        TestClass *test_class = nullptr;
+        allocator_.Allocate((void*&) test_class, sizeof(TestClass));
+        EXPECT_EQ(allocator_.Size(), sizeof(TestClass));
+
+        TestClass *test_class_2 = new TestClass();
+        Deallocator deallocator = {
+                [&]() {
+                        delete test_class_2;
+                },
+                sizeof(TestClass)
+        };
+        allocator_.Track((void*&) test_class_2, deallocator);
+        EXPECT_EQ(allocator_.Size(), 2 * sizeof(TestClass));
+
+        allocator_.Deallocate((void*&) test_class, ResourceType::kDispersed);
+        EXPECT_EQ(allocator_.Size(), sizeof(TestClass));
+
+        allocator_.Deallocate((void*&) test_class_2, ResourceType::kUnmanaged);
+        EXPECT_EQ(allocator_.Size(), 0);
+}
+
 
 }

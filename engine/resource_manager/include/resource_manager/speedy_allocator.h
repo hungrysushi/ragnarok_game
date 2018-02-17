@@ -26,6 +26,8 @@ public:
 
         std::map<uint8_t*, uint32_t> dispersed_map_;
         std::map<VoidPtr, Deallocator> unmanaged_map_;
+
+        uint32_t size_ = 0;
 };
 
 }  // namespace Ragnarok
