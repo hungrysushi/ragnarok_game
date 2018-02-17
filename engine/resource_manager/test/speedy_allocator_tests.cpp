@@ -33,7 +33,7 @@ public:
 };
 
 TEST_F(SpeedyAllocatorTests, allocate) {
-        TestClass* test_class = (TestClass*) allocator_.Allocate(sizeof(TestClass), Ragnarok::ResourceType::kUnmanaged);
+        TestClass* test_class = (TestClass*) allocator_.Allocate(sizeof(TestClass), Ragnarok::ResourceType::kDispersed);
 
         test_class->Init();
         
@@ -42,11 +42,11 @@ TEST_F(SpeedyAllocatorTests, allocate) {
 }
 
 TEST_F(SpeedyAllocatorTests, deallocate) {
-        TestClass* test_class = (TestClass*) allocator_.Allocate(sizeof(TestClass), Ragnarok::ResourceType::kUnmanaged);
+        TestClass* test_class = (TestClass*) allocator_.Allocate(sizeof(TestClass), Ragnarok::ResourceType::kDispersed);
 
         EXPECT_NE(test_class, nullptr);
 
-        allocator_.Deallocate((void*&) test_class, Ragnarok::ResourceType::kUnmanaged);
+        allocator_.Deallocate((void*&) test_class, Ragnarok::ResourceType::kDispersed);
 
         EXPECT_EQ(test_class, nullptr);
 }

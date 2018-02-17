@@ -11,7 +11,7 @@ SpeedyAllocator::~SpeedyAllocator() {
         // TODO
 }
 
-void* SpeedyAllocator::Allocate(const uint32_t allocate_size, const ResourceType type) {
+VoidPtr SpeedyAllocator::Allocate(const uint32_t allocate_size, const ResourceType type) {
 
         uint8_t *target = new uint8_t[allocate_size];
 
@@ -19,10 +19,10 @@ void* SpeedyAllocator::Allocate(const uint32_t allocate_size, const ResourceType
         // but it'll make things somewhat quick
         unmanaged_map_[target] = allocate_size;
         
-        return (void*) target;
+        return (VoidPtr) target;
 }
 
-void SpeedyAllocator::Deallocate(void*& target, const ResourceType type) {
+void SpeedyAllocator::Deallocate(VoidPtr& target, const ResourceType type) {
 
         // delete the pointer from our map
         unmanaged_map_.erase((uint8_t*) target);

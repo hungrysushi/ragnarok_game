@@ -3,7 +3,7 @@
 #include <map>
 
 #include "resource_manager/resource_manager.h"
-#include "resource_manager/resource_type.h"
+#include "resource_manager/types.h"
 
 namespace Ragnarok {
 
@@ -17,8 +17,8 @@ public:
         SpeedyAllocator();
         ~SpeedyAllocator();
 
-        void* Allocate(const uint32_t allocate_size, const ResourceType type);
-        void Deallocate(void*& target, const ResourceType type);
+        VoidPtr Allocate(const uint32_t allocate_size, const ResourceType type);
+        void Deallocate(VoidPtr& target, const ResourceType type);
         uint32_t Size();
         uint32_t Capacity();
 
