@@ -17,12 +17,13 @@ public:
         SpeedyAllocator();
         ~SpeedyAllocator();
 
-        VoidPtr Allocate(const uint32_t allocate_size, const ResourceType type);
+        void Allocate(VoidPtr& target, const uint32_t allocate_size, const ResourceType type, const Deallocator& deallocator);
         void Deallocate(VoidPtr& target, const ResourceType type);
         uint32_t Size();
         uint32_t Capacity();
 
-        std::map<uint8_t*, uint32_t> unmanaged_map_;
+        std::map<uint8_t*, uint32_t> dispersed_map_;
+        std::map<VoidPtr, Deallocator> unmanaged_map_;
 };
 
 }  // namespace Ragnarok

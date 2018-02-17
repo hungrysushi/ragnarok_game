@@ -1,5 +1,7 @@
 #pragma once
 
+#include <functional>
+
 namespace Ragnarok {
 
 enum ResourceType {
@@ -12,5 +14,10 @@ enum ResourceType {
  * a more friendly alias for void pointers when using references
  */
 typedef void* VoidPtr;
+
+/**
+ * a closure that should use the external mechanism for freeing an unmanaged resource
+ */
+typedef std::function<void()> Deallocator;
 
 }  // namespace Ragnarok

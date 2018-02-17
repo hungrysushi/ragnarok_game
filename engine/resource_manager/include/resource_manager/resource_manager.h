@@ -10,9 +10,10 @@ public:
         virtual ~ResourceManager() { }
 
         /**
-         * Return a pointer of the size requested
+         * Allocate a pointer of the size requested, or store an already
+         * allocated pointer along with a deallocator function
          */
-        virtual VoidPtr Allocate(const uint32_t allocate_size, const ResourceType type) = 0;
+        virtual void Allocate(VoidPtr& target, const uint32_t allocate_size, const ResourceType type, const Deallocator& deallocator) = 0;
 
         /**
          * Delete/recycle the memory used by the target pointer

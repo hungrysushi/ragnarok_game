@@ -11,24 +11,40 @@ SpeedyAllocator::~SpeedyAllocator() {
         // TODO
 }
 
-VoidPtr SpeedyAllocator::Allocate(const uint32_t allocate_size, const ResourceType type) {
+void SpeedyAllocator::Allocate(VoidPtr& target, const uint32_t allocate_size, const ResourceType type, const Deallocator& deallocator) {
 
-        uint8_t *target = new uint8_t[allocate_size];
+        if (type == ResourceType::kDispersed || type == ResourceType::kPacked) {
 
-        // save the pointer in a map. This is definitely not space efficient,
-        // but it'll make things somewhat quick
-        unmanaged_map_[target] = allocate_size;
-        
-        return (VoidPtr) target;
+                target = (VoidPtr) new uint8_t[allocate_size];
+
+                // save the pointer in a map. This is definitely not space efficient,
+                // but it'll make things somewhat quick
+                dispersed_map_[(uint8_t*) target] = allocate_size;
+        }
+        else if (type == ResourceType::kUnmanaged) {
+
+                // this is kind of a misnomer, since we're not really allocating anything here
+                // We're just keeping track of something already allocated
+                unmanaged_map_[(uint8_t*) target] = deallocator;
+        }
 }
 
 void SpeedyAllocator::Deallocate(VoidPtr& target, const ResourceType type) {
 
-        // delete the pointer from our map
-        unmanaged_map_.erase((uint8_t*) target);
+        if (type == ResourceType::kDispersed || type == ResourceType::kPacked) {
+                // delete the pointer from our map
+                dispersed_map_.erase((uint8_t*) target);
 
-        // don't care about space reuse
-        delete[] (uint8_t*) target;
+                // don't care about space reuse
+                delete[] (uint8_t*) target;
+        }
+        else if (type == ResourceType::kUnmanaged) {
+                // call the closure for freeing up this resource
+                unmanaged_map_[target]();
+
+                // delete from our map
+                unmanaged_map_.erase((uint8_t*) target);
+        }
 
         target = nullptr;
 }
