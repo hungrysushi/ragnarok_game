@@ -9,3 +9,8 @@ target_include_directories(game_app PUBLIC
 
 target_link_libraries(game_app LINK_PUBLIC
         renderer)
+
+# macro definitions to turn features on and off
+target_compile_definitions(game_app PRIVATE
+        RENDER_CONSOLE
+        )
