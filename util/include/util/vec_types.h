@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ostream>
+
 template <typename T>
 struct vec2 {
         T x = 0.0;
@@ -22,7 +24,19 @@ struct vec3 {
                         (this->y == rhs.y) &&
                         (this->z == rhs.z);
         }
+
+        /* friend ostream& operator<<(ostream& os, const vec3<T>& rhs); */
 };
+
+template <typename T>
+std::ostream& operator<<(std::ostream& os, const vec3<T> rhs) {
+        os << "x: " << rhs.x << ", "
+           << "y: " << rhs.y << ", "
+           << "z: " << rhs.z;
+
+        return os;
+}
+
 
 template <typename T>
 struct vec4 {

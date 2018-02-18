@@ -5,11 +5,11 @@
 
 namespace Ragnarok {
 
-class OpenGLRenderer : public Renderer {
+class ConsoleRenderer : public Renderer {
 public:
-        OpenGLRenderer();
-        ~OpenGLRenderer();
-        
+        ConsoleRenderer();
+        ~ConsoleRenderer();
+
         void DrawWorld(World world);
 };
 

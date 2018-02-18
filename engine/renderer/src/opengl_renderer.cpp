@@ -10,7 +10,7 @@ OpenGLRenderer::~OpenGLRenderer() {
         // TODO
 }
 
-void OpenGLRenderer::DrawWorld(/*World world*/) {
+void OpenGLRenderer::DrawWorld(World world) {
         // TODO
 }
 
