@@ -12,25 +12,37 @@ public:
     
     ~Source();
 
-    void setPosition(const vec3<float> position); 
+    void SetPosition(const vec3<float> position); 
 
-    void setVelocity(const vec3<float> velocity); 
+    void SetVelocity(const vec3<float> velocity); 
     
-    void setDirection(const vec3<float> direction);
+    void SetDirection(const vec3<float> direction);
 
-    void setVolume(const float volume);
+    void SetVolume(const float volume);
 
-    float getVolume();
+    void SetPitch(const float pitch);
 
-    /* someObject getPosition(); */
-    
-    /* someObject getStatus(); */
+    void SetLoop(bool loop);
 
+    void Play();
+
+    void Pause();
+
+    bool IsPlaying();
+
+    void Stop();
+
+    float GetVolume();
+
+    float GetPitch();
+
+    vec3<float> GetPosition();
 
 private:
-    int m_sourceId;
-    float m_currentVolume;
-    /* someObject m_position; */
+    ALuint sourceId_;
+    float volume_;
+    float pitch_;
+    vec3<float> position_;
 
 };
 

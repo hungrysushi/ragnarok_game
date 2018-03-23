@@ -13,14 +13,10 @@ public:
 
     ~Device();
 
-    void changePlaybackDevice(const ALchar *deviceName);
-
-    void changeCaptureDevice(const ALchar *deviceName);
-
 private:
-    ALCdevice *m_PlaybackDevice;
-    ALCdevice *m_CaptureDevice;
-    ALCcontext *m_Context;
+    ALCdevice *playbackDevice_;
+    /* ALCdevice *captureDevice_; */
+    ALCcontext *context_;
 
 };
 
