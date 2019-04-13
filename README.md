@@ -1,88 +1,10 @@
 # Game Project
 
-This is a project to write a game from scratch.
+Runs on Unreal Engine
 
 The readme will be updated with miscellaenous details as the project progresses.
 
 High level design decisions can also be documented here.
-
-## First time instructions
-After cloning the project:
-
-* Run `git submodule update --init`
-
-* Go to third_party/glad and run `python -m glad --generator c --no-loader --out-path ../glad_generated`
-
-* Check OpenGL version `glxinfo | grep "OpenGL version"` (Linux)
-    * Edit ` GLFW_CONTEXT_VERSION_MAJOR` and `GLFW_CONTEXT_VERSION_MINOR` in `engine/src/engine.cpp` to represent version on your computer.
-    * For example, if OpenGL version = 4.2, `GLFW_CONTEXT_VERSION_MAJOR = 4` and `GLFW_CONTEXT_VERSION_MINOR = 2`
-
-* Go to third_party/openal-soft/build and run `cmake ..`
-    * Make sure appropriate backends are detected (DirectSound for Windows, PulseAudio, ALSA, OSS for Linux).
-    * Run `make`
-    * Run `./openal-info` to check if OpenAL information is correct.
-
-## Building and running
-From the root of the project,
-~~~~
-mkdir build && cd build
-cmake ../
-make
-./game_project
-~~~~
-
-## High-level
-Obviously, for "video game" part, there needs to be some video output, some audio playback, and some input handling.
-
-Renderer
-Audio Manager
-Input Handler
-Event System
-World/Level Representation
-Interface
-    Menu system
-
-To build a lot of the game logic and mechanics, tools are needed. Defining behavior in the level editor is a problem that needs to be tackled.
-Sprite Editor
-Level Editor
-
-Each of these components will consist of a high-level logic module combined with a low level interface. Implementation architecture TBD
-
-## Discussion
-
-- Libraries to use
-- Structure, Modularity
-- Feature list
-
-Let's hash out the design to some degree before starting the redesign. The feature list should help us keep from overengineering, to a degree.
-
-### Libraries
-
-GLFW - windowing and input
-GLAD - hardware-specific libraries
-OpenAL - audio
-GLM - matrix math library. Could write our own, but this provides decent performance.
-stbimage - image loader for a variety of images. Should replace with libpng eventually
-
-### Structure
-
-Main -> Logic Event Loop -> World Update -> Engine Update -> Process Output -> Process Input -> Logic Event Loop -> ...
-
-The alternative to this structure is to separate the engine and logic in separate threads. That may help performance, but there will still need to be some point of sync in order to ensure consistent timing of events. For (technically) simple game we're thinking of, I don't see a lot of benefit offered by threads, while our lives are made a whole lot simpler by having logic and engine events in the same loop. Thoughts?
-
-Inputs will be handled through static callback functions.
-
-### Feature List
-
-- Reusable engine
-- Level parser
-- Level editor
-- 3D?
-- Camera effects (ex. shake) capability
-- Teleportation, gravity, speed, strength etc.
-- Physics support to change in game mechanincs on the fly
-- Level can change orientation (x to y axis)
-- Input to include keyboard initially, controller functionality later
 
 ### Storyline Discussion
 - Depicting and detailing the Norse apocalypse, Ragnarok
